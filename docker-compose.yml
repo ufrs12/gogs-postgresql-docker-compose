@@ -18,7 +18,7 @@ services:
       restart: always
       ports:
         - "10022:22"
-        - "10080:3000"
+        - "8080:3000"
       volumes:
         - "./data/gogs:/data"
         - "./entrypoint.sh:/entrypoint.sh"
