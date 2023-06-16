@@ -36,6 +36,24 @@ docker pull postgres
 ```
 docker save postgres > postgres.tar
 ```
+docker load --input postgres.tar
+
+images_name:image_p
 
 
+
+### Тянем образ Gogs
+```
+docker pull gogs/gogs
+```
+
+### Архивируем образ PostgreSQL
+```
+docker save gogs/gogs > gogs.tar
+```
+
+
+docker load --input gogs.tar 
+images_name:image_g
+docker load --input
 
