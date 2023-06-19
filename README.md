@@ -16,9 +16,15 @@ docker-compose up -d
 ## How to close 
 ---
 
-1. Run `docker-compose stop` to stop gogs and postgresql containers.
-2. Run `docker-compose rm -f` to remove gogs and postgresql containers.
+1. To stop gogs and postgresql containers:
+```
+docker-compose stop
+```
 
+2. To remove gogs and postgresql containers:
+```
+docker-compose rm -f
+```
 
 # Сборка на хостах без интернета
 
