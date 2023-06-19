@@ -7,23 +7,20 @@
 ```
 docker-compose up -d
 ```
+
 2. To check that your gogs application is running go to link:
-[http://localhost:8080](http://localhost:8080)
+[http://localhost:3000](http://localhost:3000)
 
-3. Find postgresql IP address in docker container with:
-```
-docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" gogs-postgresql
-```
-
-4. Set up and Initial your gogs application at [http://localhost:8080](http://localhost:8080), on DataBase section choose PostgreSQL, Host: `(IP from step #):5432`, User:`gogs`, Password:`changeme`, Database Name:`gogs`. you can define these on `docker-compose.yaml`.
+3. Set up and Initial your gogs application. On DataBase section choose PostgreSQL, Host: `db:5432`, User:`gogs`, Password:`changeme`, Database Name:`gogs`. You can define these on `docker-compose.yaml`.
 
 ## How to close 
 ---
 
 1. Run `docker-compose stop` to stop gogs and postgresql containers.
 2. Run `docker-compose rm -f` to remove gogs and postgresql containers.
-3. Run `./clean.sh` if you want remove gogs and postgresql all datas.
->>>>>>> [chaohui] N/A add all files
+
+
+# Сборка на хостах без интернета
 
 ## Сборка tar-архивов образов
 
@@ -36,24 +33,51 @@ docker pull postgres
 ```
 docker save postgres > postgres.tar
 ```
-docker load --input postgres.tar
-
-images_name:image_p
-
-
 
 ### Тянем образ Gogs
 ```
 docker pull gogs/gogs
 ```
 
-### Архивируем образ PostgreSQL
+### Архивируем образ Gogs
 ```
 docker save gogs/gogs > gogs.tar
 ```
 
+## По FTP переносим архивы на хост
 
-docker load --input gogs.tar 
+## Загружаем образы в Docker
+
+### Загружаем образ PostgreSQL
+```
+docker load --input postgres.tar
+```
+images_name:image_p
+
+### Загружаем образ Gogs
+```
+docker load --input gogs.tar
+```
 images_name:image_g
-docker load --input
 
+
+
+# Git-client
+
+https://tortoisegit.org/
+
+В процессе установки, на этапе выбора языка, можно скачать языковой пакет и русифицировать прям на ходу.
+
+### Авторизация без пароля
+
+Инструкция 
+http://fkn.ktu10.com/?q=node/6974
+
+Еще инструкция 
+
+http://fkn.ktu10.com/?q=node/6965
+
+Качаем puttygen.exe
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+Не получилось пока заюзать...
